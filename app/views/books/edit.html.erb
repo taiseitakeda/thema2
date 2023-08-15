@@ -1,24 +1,29 @@
 <h1>Editing Book</h1>
 <% if @book.errors.any? %>
-  <%= @book.errors.count %>error prohibited this book from being saved:
+<div class="error_explanation">
+  <h2><%= @book.errors.count %>error prohibited this book from being saved:</h2>
   <ul>
     <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
+</div>
 <% end %>
 <%= form_with model: @book do |f| %>
 
+<div class="input">
  <h4>Title</h4>
   <%= f.text_field :title %>
 
   <h4>Body</h4>
   <%= f.text_area :body %>
 
-  <%= f.submit 'Update Book' %>
+  <h4><%= f.submit 'Update Book' %></h4>
+</div>
 
-
+<botton>
   <%= link_to "Show", book_path %>
+  |
   <%= link_to "Back", books_path %>
-
+</botton>
 <% end %>
